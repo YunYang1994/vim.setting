@@ -1,0 +1,2 @@
+# vimrc
+some IDE settings
