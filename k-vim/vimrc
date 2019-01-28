@@ -763,12 +763,6 @@ func SetTitle()
 		elseif expand("%:e") == 'h'
 			call append(line(".")+10, "#pragma once")
 
-		elseif &filetype == 'c'
-			call append(line(".")+10,"#include \"".expand("%:t:r").".h\"")
-
-		elseif &filetype == 'cpp'
-			call append(line(".")+10, "#include \"".expand("%:t:r").".h\"")
-
 		endif
 
 	endif
