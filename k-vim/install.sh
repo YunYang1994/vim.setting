@@ -100,7 +100,7 @@ else
 fi
 
 # 如果是服务器安装打话，那么你就不能使用 python install.py 命令，而是需要使用 install.sh命令！！！！
-
+cp -rf ~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/
 echo "Install Done!"
 # mkdir tags
 # ctags -R -f ~/.vim/tags/python.ctags /usr/lib/python3.5/
