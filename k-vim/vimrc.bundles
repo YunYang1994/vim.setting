@@ -949,7 +949,7 @@ endif
     nmap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
     imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
     smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-    let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+    let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`', '(':')'}
     let g:AutoPairsMapBS = 0 
     inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
     let g:complete_parameter_py_keep_value = 1
