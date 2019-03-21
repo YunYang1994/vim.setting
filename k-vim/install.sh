@@ -95,6 +95,10 @@ git submodule update --init --recursive
 if [ `which clang` ]   # check system clang
 then
     python install.py --clang-completer --system-libclang   # use system clang
+    # 如果报错 ' CMake Error at ycm/CMakeLists.txt:107 (file): file DOWNLOAD HASH mismatch
+    # 那么
+    # cd bundle/YouCompleteMe
+    # sh install.sh
 else
     python install.py --clang-completer
 fi
