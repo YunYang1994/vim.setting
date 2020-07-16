@@ -61,7 +61,7 @@ let s:color256 = {
       \
       \ 232 : '#080808', 233 : '#121212', 234 : '#1c1c1c', 235 : '#262626', 236 : '#303030', 237 : '#3a3a3a',
       \ 238 : '#444444', 239 : '#4e4e4e', 240 : '#585858', 241 : '#606060', 242 : '#666666', 243 : '#767676',
-      \ 244 : '#808080', 245 : '#8a8a8a', 246 : '#949494', 247 : '#9e9e9e', 248 : '#a8a8a8', 249 : '#f2f2f2',
+      \ 244 : '#808080', 245 : '#8a8a8a', 246 : '#949494', 247 : '#9e9e9e', 248 : '#a8a8a8', 249 : '#b2b2b2',
       \ 250 : '#bcbcbc', 251 : '#c6c6c6', 252 : '#d0d0d0', 253 : '#dadada', 254 : '#e4e4e4', 255 : '#eeeeee',
       \ }
 
@@ -279,11 +279,6 @@ call s:hi('rustKeyword' , 68  , '' , 'bold' , 'bold')
 call s:hi('rustModPath' , 68  , '' , 'none' , 'none')
 call s:hi('rustTrait'   , 168 , '' , 'bold' , 'bold')
 
-" toml
-call s:hi('tomlTable' , 169  , '' , 'bold' , 'bold')
-call s:hi('tomlKey' , 68  , '' , 'none' , 'none')
-call s:hi('tomlComment' , 30 , '' , 'none' , 'italic')
-
 " json
 call s:hi('jsonStringSQError', 160, '', 'none', 'none')
 
@@ -450,3 +445,25 @@ hi cppOperator guifg=#09f272 guibg=NONE guisp=NONE gui=NONE ctermfg=47 ctermbg=N
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
 set background=dark
+
+syn region cmakeGeneratorExpression start="$<" end=">" contained oneline contains=cmakeVariableValue,cmakeProperty,cmakeGeneratorExpressions,cmakeTodo
+
+syn region cmakeString start='"' end='"' contained contains=cmakeTodo,cmakeVariableValue,cmakeEscaped
+syn region cmakeVariableValue start="${" end="}" contained oneline contains=cmakeVariable,cmakeTodo,cmakeVariableValue
+
+" The keywords are generated as:  cmake --help-command-list | tr "\n" " "
+syn keyword cmakeStatement
+      \ ADD_CUSTOM_COMMAND ADD_CUSTOM_TARGET ADD_DEFINITIONS ADD_DEPENDENCIES ADD_EXECUTABLE ADD_LIBRARY ADD_SUBDIRECTORY ADD_TEST AUX_SOURCE_DIRECTORY BUILD_COMMAND BUILD_NAME CMAKE_MINIMUM_REQUIRED CONFIGURE_FILE CREATE_TEST_SOURCELIST ELSE ELSEIF ENABLE_LANGUAGE ENABLE_TESTING ENDFOREACH ENDFUNCTION ENDIF ENDMACRO ENDWHILE EXEC_PROGRAM EXECUTE_PROCESS EXPORT_LIBRARY_DEPENDENCIES FILE FIND_FILE FIND_LIBRARY FIND_PACKAGE FIND_PATH FIND_PROGRAM FLTK_WRAP_UI FOREACH FUNCTION GET_CMAKE_PROPERTY GET_DIRECTORY_PROPERTY GET_FILENAME_COMPONENT GET_SOURCE_FILE_PROPERTY GET_TARGET_PROPERTY GET_TEST_PROPERTY IF INCLUDE INCLUDE_DIRECTORIES INCLUDE_EXTERNAL_MSPROJECT INCLUDE_REGULAR_EXPRESSION INSTALL INSTALL_FILES INSTALL_PROGRAMS INSTALL_TARGETS LINK_DIRECTORIES LINK_LIBRARIES LIST LOAD_CACHE LOAD_COMMAND MACRO MAKE_DIRECTORY MARK_AS_ADVANCED MATH MESSAGE OPTION OUTPUT_REQUIRED_FILES PROJECT QT_WRAP_CPP QT_WRAP_UI REMOVE REMOVE_DEFINITIONS SEPARATE_ARGUMENTS SET SET_DIRECTORY_PROPERTIES SET_SOURCE_FILES_PROPERTIES SET_TARGET_PROPERTIES SET_TESTS_PROPERTIES SITE_NAME SOURCE_GROUP STRING SUBDIR_DEPENDS SUBDIRS TARGET_LINK_LIBRARIES TRY_COMPILE TRY_RUN UNSET USE_MANGLED_MESA UTILITY_SOURCE VARIABLE_REQUIRES VTK_MAKE_INSTANTIATOR VTK_WRAP_JAVA VTK_WRAP_PYTHON VTK_WRAP_TCL WHILE WRITE_FILE
+            \ nextgroup=cmakeArguments
+
+" Define the default highlighting.
+" Only when an item doesn't have highlighting yet
+
+
+hi def link cmakeComment Comment
+hi def link cmakeString Statement
+hi def link cmakeVariableValue Identifier
+hi def link cmakeRegistry Underlined
+hi def link cmakeArguments Identifier
+
+let b:current_syntax = "cmake"
