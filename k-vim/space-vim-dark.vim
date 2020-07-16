@@ -61,7 +61,7 @@ let s:color256 = {
       \
       \ 232 : '#080808', 233 : '#121212', 234 : '#1c1c1c', 235 : '#262626', 236 : '#303030', 237 : '#3a3a3a',
       \ 238 : '#444444', 239 : '#4e4e4e', 240 : '#585858', 241 : '#606060', 242 : '#666666', 243 : '#767676',
-      \ 244 : '#808080', 245 : '#8a8a8a', 246 : '#949494', 247 : '#9e9e9e', 248 : '#a8a8a8', 249 : '#b2b2b2',
+      \ 244 : '#808080', 245 : '#8a8a8a', 246 : '#949494', 247 : '#9e9e9e', 248 : '#a8a8a8', 249 : '#f2f2f2',
       \ 250 : '#bcbcbc', 251 : '#c6c6c6', 252 : '#d0d0d0', 253 : '#dadada', 254 : '#e4e4e4', 255 : '#eeeeee',
       \ }
 
@@ -79,10 +79,11 @@ let s:colors = {
       \ 59: '#FF73B9', 68: '#4f97d7', 75: '#FF62B0', 76: '#86dc2f', 81: '#f9bb00', 88: '#330033',
       \ 104: '#df90ff', 114: '#67b11d', 128: '#e76a49', 135: '#B7B7FF', 136: '#dc752f', 139: '#d698fe',
       \ 140: '#b888e2', 141: '#9a9aba', 151: '#74BAAC', 160: '#e0211d', 161: '#E469FE', 167: '#ce537a',
-      \ 168: '#ce537a', 169: '#bc6ec5', 171: '#6094DB', 173: '#e18254', 176: '#E697E6', 177: '#D881ED',
-      \ 178: '#d1951d', 179: '#d4b261', 196: '#e0211d', 204: '#ce537a', 207: '#FF68DD', 214: '#FF4848',
-      \ 218: '#d19a66', 225: '#FFC8C8', 229: '#fff06a', 233: '#303030', 234: '#212026', 235: '#292b2e',
-      \ 236: '#34323e', 238: '#544a65', 241: '#534b5d', 244: '#b4d1b6',
+      \ 168: '#ce537a', 169: '#bc6ec5', 170: '#bc6ec5', 171: '#6094DB', 173: '#e18254', 176: '#E697E6',
+      \ 177: '#D881ED', 178: '#d1951d', 179: '#d4b261', 196: '#e0211d', 204: '#ce537a', 207: '#FF68DD',
+      \ 214: '#FF4848', 218: '#d19a66', 225: '#FFC8C8', 229: '#fff06a', 233: '#303030', 234: '#212026',
+      \ 235: '#292b2e', 236: '#34323e', 238: '#544a65', 239: '#44505c', 241: '#534b5d', 243: '#65737e',
+      \ 244: '#b4d1b6',
       \ }
 
 function! s:hi(item, fg, bg, cterm, gui)
@@ -94,6 +95,7 @@ endfunction
 
 let s:fg = 249
 let s:bg = get(g:, 'space_vim_dark_background', 235)
+let s:bg = max([s:bg, 233])
 
 let s:bias = s:bg - 235
 let s:bg0 = s:bg - 1
@@ -107,12 +109,12 @@ let s:bg4 = s:bg + 4
 call s:hi('Normal' , 249 , s:bg , 'None' , 'None')
 call s:hi('Cursor' , 235 , 178  , 'bold' , 'bold')
 
-call s:hi('LineNr' , 238+s:bias , s:bg0 , 'None' , 'None')
+call s:hi('LineNr' , 239+s:bias , s:bg0 , 'None' , 'None')
 
-call s:hi('CursorLine'   , ''  , s:bg0 , 'None' , 'None')
-call s:hi('CursorLineNr' , 134 , s:bg0 , 'None' , 'None')
-call s:hi('CursorColumn' , ''  , s:bg0 , 'None' , 'None')
-call s:hi('ColorColumn'  , ''  , s:bg0 , 'None' , 'None')
+call s:hi('CursorLine'   , ''  , s:bg0   , 'None' , 'None')
+call s:hi('CursorLineNr' , 170 , s:bg0   , 'None' , 'None')
+call s:hi('CursorColumn' , ''  , s:bg0   , 'None' , 'None')
+call s:hi('ColorColumn'  , ''  , s:bg0   , 'None' , 'None')
 
 " bug. opposite here.
 call s:hi('StatusLine'   , 140 , s:bg2 , 'None' , 'None')
@@ -138,10 +140,10 @@ call s:hi('Debug'       , 225 , '' , 'None' , 'None')
 call s:hi('Define'      , 177 , '' , 'None' , 'None')
 call s:hi('Delimiter'   , 151 , '' , 'None' , 'None')
 
-call s:hi('DiffAdd'    , ''  , 24  , 'None' , 'None')
-call s:hi('DiffChange' , 181 , 239 , 'None' , 'None')
-call s:hi('DiffDelete' , 162 , 53  , 'None' , 'None')
-call s:hi('DiffText'   , ''  , 102 , 'None' , 'None')
+hi DiffAdd    term=bold cterm=reverse ctermfg=142 ctermbg=235 gui=reverse guifg=#b8bb26 guibg=#29422d
+hi DiffChange term=bold cterm=reverse ctermfg=107 ctermbg=235 gui=reverse guifg=#8ec07c guibg=#32322c
+hi DiffDelete term=bold cterm=reverse ctermfg=160 ctermbg=235 gui=reverse guifg=#e0211d guibg=#282828
+hi DiffText   term=reverse cterm=reverse ctermfg=214 ctermbg=235 gui=reverse guifg=#fabd2f guibg=#282828
 
 call s:hi('Exception'  , 204 , ''  , 'bold' , 'bold')
 call s:hi('Function'   , 169 , ''  , 'bold' , 'bold')
@@ -169,7 +171,7 @@ call s:hi('Typedef'    , 68 , '' , 'None'      , 'None')
 call s:hi('Underlined' , ''  , '' , 'underline' , 'underline')
 
 call s:hi('Search'    , 16 , 76    , 'bold' , 'bold')
-call s:hi('IncSearch' , 16 , 76    , 'bold' , 'bold')
+call s:hi('IncSearch' , 16 , 167   , 'bold' , 'bold')
 call s:hi('MatchParen', 40 , s:bg0 , 'bold,underline', 'bold,underline')
 
 call s:hi('ModeMsg'  , 229 , '' , 'None' , 'None')
@@ -196,10 +198,10 @@ call s:hi('ErrorMsg' , 196 , s:bg , 'bold' , 'bold')
 call s:hi('Special'        , 169 , '' , 'None' , 'None')
 call s:hi('SpecialKey'     , 59  , '' , 'None' , 'None')
 call s:hi('SpecialChar'    , 171 , '' , 'bold' , 'bold')
-call s:hi('SpecialComment' , 24  , '' , 'None' , 'None')
+call s:hi('SpecialComment' , 243  , '' , 'None' , 'None')
 
-call s:hi('SpellBad'   , 168 , '' , 'underline' , 'undercurl')
-call s:hi('SpellCap'   , 110 , '' , 'underline' , 'undercurl')
+call s:hi('SpellBad'   , 168 , 52 , 'underline' , 'undercurl')
+call s:hi('SpellCap'   , 110 , 25 , 'underline' , 'undercurl')
 call s:hi('SpellLocal' , 253 , '' , 'underline' , 'undercurl')
 call s:hi('SpellRare'  , 218 , '' , 'underline' , 'undercurl')
 
@@ -268,6 +270,7 @@ call s:hi('solBuiltinType'  , 176 , '' , 'none' , 'none')
 call s:hi('vimLet'     , 68 , '' , 'bold' , 'bold')
 call s:hi('vimFuncKey' , 68 , '' , 'bold' , 'bold')
 call s:hi('vimCommand' , 68 , '' , 'bold' , 'bold')
+call s:hi('vimMap'     , 68 , '' , 'none' , 'none')
 call s:hi('vimGroup'   , 67 , '' , 'bold' , 'bold')
 call s:hi('vimHiGroup' , 67 , '' , 'bold' , 'bold')
 
@@ -276,6 +279,11 @@ call s:hi('rustKeyword' , 68  , '' , 'bold' , 'bold')
 call s:hi('rustModPath' , 68  , '' , 'none' , 'none')
 call s:hi('rustTrait'   , 168 , '' , 'bold' , 'bold')
 
+" toml
+call s:hi('tomlTable' , 169  , '' , 'bold' , 'bold')
+call s:hi('tomlKey' , 68  , '' , 'none' , 'none')
+call s:hi('tomlComment' , 30 , '' , 'none' , 'italic')
+
 " json
 call s:hi('jsonStringSQError', 160, '', 'none', 'none')
 
@@ -283,6 +291,12 @@ call s:hi('jsonStringSQError', 160, '', 'none', 'none')
 call s:hi('xmlTag'     , 167 , '' , 'none' , 'none')
 call s:hi('xmlEndTag'  , 167 , '' , 'none' , 'none')
 call s:hi('xmlTagName' , 167 , '' , 'none' , 'none')
+
+" js
+call s:hi('jsReturn' , 68 , '' , 'bold' , 'bold')
+hi link jsObjectKey Type
+hi link jsFuncBlock Identifier
+hi link jsVariableDef Title
 
 " go
 call s:hi('goType'                  , 176 , '' , 'none' , 'none')
@@ -317,20 +331,21 @@ call s:hi('rubyInterpolationDelimiter' , 176 , '' , 'none' , 'none')
 " html
 hi link htmlSpecialTagName Tag
 call s:hi('htmlItalic'  , 36  , '' , 'None' , 'italic')
+hi htmlBold cterm=bold gui=bold
 
 " python-mode
-call s:hi('pythonLambdaExpr'      , 161 , '' , 'none' , 'none')
-call s:hi('pythonClass'           , 168 , '' , 'bold' , 'bold')
+call s:hi('pythonLambdaExpr'      , 105 , '' , 'none' , 'none')
+call s:hi('pythonClass'           , 207 , '' , 'bold' , 'bold')
 call s:hi('pythonParameters'      , 147 , '' , 'none' , 'none')
 call s:hi('pythonParam'           , 108 , '' , 'none' , 'none')
 call s:hi('pythonBrackets'        , 183 , '' , 'none' , 'none')
-call s:hi('pythonClassParameters' , 169 , '' , 'none' , 'none')
+call s:hi('pythonClassParameters' , 111 , '' , 'none' , 'none')
 call s:hi('pythonBuiltinType'     , 68  , '' , 'none' , 'none')
 call s:hi('pythonBuiltinObj'      , 71  , '' , 'bold' , 'bold')
-call s:hi('pythonBuiltinFunc'     , 244 , '' , 'bold' , 'bold')
+call s:hi('pythonBuiltinFunc'     , 169 , '' , 'bold' , 'bold')
 call s:hi('pythonOperator'        , 68  , '' , 'bold' , 'bold')
 call s:hi('pythonInclude'         , 68  , '' , 'bold' , 'bold')
-call s:hi('pythonSelf'            , 68  , '' , 'none' , 'none')
+call s:hi('pythonSelf'            , 68  , '' , 'bold' , 'bold')
 call s:hi('pythonStatement'       , 68  , '' , 'bold' , 'bold')
 call s:hi('pythonDottedName'      , 169 , '' , 'bold' , 'bold')
 call s:hi('pythonDecorator'       , 169 , '' , 'bold' , 'bold')
@@ -338,7 +353,7 @@ call s:hi('pythonException'       , 166 , '' , 'bold' , 'bold')
 call s:hi('pythonError'           , 195 , '' , 'none' , 'none')
 call s:hi('pythonIndentError'     , 196 , '' , 'none' , 'none')
 call s:hi('pythonSpaceError'      , 196 , '' , 'none' , 'none')
-call s:hi('pythonFunctionCall'    , 197 , '' , 'none' , 'none')
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -420,6 +435,17 @@ call s:hi('QuickScopeSecondary' , 81  , '' , 'underline' , 'underline')
 
 delf s:hi
 unlet s:color256 s:colors s:bg
+
+hi Normal guifg=#e6e3e6 guibg=#19241c guisp=#19241c gui=NONE ctermfg=15 ctermbg=235 cterm=NONE
+hi Statement guifg=#05dbf7 guibg=NONE guisp=NONE gui=NONE ctermfg=45 ctermbg=NONE cterm=NONE
+hi Function guifg=#09f272 guibg=NONE guisp=NONE gui=NONE ctermfg=47 ctermbg=NONE cterm=NONE
+hi pythonStatement guifg=#05dbf7 guibg=NONE guisp=NONE gui=NONE ctermfg=45 ctermbg=NONE cterm=NONE
+hi pythonSelf guifg=#f50a8b guibg=NONE guisp=NONE gui=NONE ctermfg=198 ctermbg=NONE cterm=NONE
+hi pythonParam guifg=#f29808 guifg=#f29808 guibg=NONE guisp=NONE gui=NONE ctermfg=214 ctermbg=NONE cterm=NONE
+hi Type guifg=#f50a8b guibg=NONE guisp=NONE gui=NONE ctermfg=198 ctermbg=NONE cterm=NONE
+hi pythonOperator guifg=#bd0065 guibg=NONE guisp=NONE gui=bold ctermfg=5 ctermbg=NONE cterm=bold
+hi Identifier guifg=#ff0d92 guibg=NONE guisp=NONE gui=NONE ctermfg=198 ctermbg=NONE cterm=NONE
+hi cppOperator guifg=#09f272 guibg=NONE guisp=NONE gui=NONE ctermfg=47 ctermbg=NONE cterm=NONE
 
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
