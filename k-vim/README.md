@@ -1,54 +1,16 @@
-k-vim
-=======================
-
-
-> VERSION: 9.2
-
-> LAST_UPDATE_TIME: 2017-07-29
-
-> 本次更新: 小版本更新, 支持vim8异步语法检查
-
-详细 [更新日志](https://github.com/wklken/k-vim/wiki/UPDATE_LOG)
-
-# 目标
-
-> Just a Better Vim Config. Keep it Simple.
-
-
-**PS**: 服务器端无插件`k-vim`简化版本(curl直接设置vimrc即可)[vim-for-server](https://github.com/wklken/vim-for-server)
-
-**PPS**: 一份tmux配置 [k-tmux](https://github.com/wklken/k-tmux)
-
----------------------------------
-
----------------------------------
-
-# 截图
-
-solarized主题
-
-![solarized](https://github.com/wklken/gallery/blob/master/vim/solarized.png?raw=true)
-
-molokai主题
-
-![molokai](https://github.com/wklken/gallery/blob/master/vim/molokai.png?raw=true)
-
----------------------------------
----------------------------------
 
 # 安装步骤
 
 ### 1. clone 到本地
 
 ```
-git clone https://github.com/wklken/k-vim.git
+$ sudo sh install.sh
 ```
 
 
 ### 2. 安装依赖包
 
-
-##### 2.1 系统依赖 # ctags, ag(the_silver_searcher)
+##### 2.1 系统依赖
 
 ```
 # ubuntu
@@ -93,38 +55,11 @@ npm install jslint -g
 npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint
 ```
 
-
-### 3. 安装
-
-```
-进入目录, 执行安装
-# 注意原先装过的童鞋, 重装时，不要到~/.vim下执行(这是软连接指向k-vim真是目录)，必须到k-vim原生目录执行
-# 会进入安装插件的列表，一安装是从github clone的，完全取决于网速, 之后会自动编译 YCM, 编译失败的话需要手动编译, 有问题见YCM文档
-# 如果发现有插件安装失败 可以进入vim, 执行`:PlugInstall'
-
-cd k-vim/
-sh -x install.sh
-```
-
-------------------------
-------------------------
-
 # 移除安装
 
 ```
 cd ~ && rm -rf .vim .vimrc .vimrc.bundles && cd -
 ```
-
----------------------------------
----------------------------------
-
-# 常见问题
-
-详见 [wiki](https://github.com/wklken/k-vim/wiki) 以及  [issues](https://github.com/wklken/k-vim/issues)
-
-
-------------------------
-------------------------
 
 # 插件
 
@@ -296,26 +231,4 @@ version 9.2
 细节:
 1. 新增快捷键 gv 选中并高亮最后一次插入的内容
 ```
-
-### Contributors
-
-thx a lot. 可以给我提pull request:)
-
-查看详情 [git-contributors](https://github.com/wklken/k-vim/graphs/contributors)
-
-### Inspire
-
-1. vimrc文件布局`vimrc+vimrc.bundles`配置方式参考 [maximum-awesome](https://github.com/square/maximum-awesome)
-
-2. install.sh 参考`spf13-vim` 的`bootstrap.sh` [spf13-vim](https://github.com/spf13/spf13-vim)
-
-2. 插件管理使用[Vim-plug](https://github.com/junegunn/vim-plug)
-
-3. 自动补全 [YCM](https://github.com/Valloric/YouCompleteMe)
-
-4. 插件挑选 [VimAwesome](http://vimawesome.com/)
-
-### Resources
-
-[链接](http://www.wklken.me/posts/2014/10/03/vim-resources.html)
 
