@@ -212,23 +212,3 @@ ctrl+n    相对/绝对行号切换
     13. python使用"""添加docstring会自动补全三引号
     14. Python使用#进行注释时, 自动缩进
 ```
-
-------------------------
-------------------------
-
-### UPDATE_LOG
-
-version 9.2
-
-```
-插件部分:
-1. 增加 w0rp/ale 异步语法检查插件, 用户vim版本为8.0时自动启用. 非8时, 启用默认scrooloose/syntastic, 两套插件快捷键一致
-2. 切换使用flake8作为python风格检查(pip install pep8)
-3. 启用yapf作为python代码格式化(pip install yapf)
-4. 启用eslint作为javascript代码检查
-5. YCM 设置回车选中不再弹补全框
-
-细节:
-1. 新增快捷键 gv 选中并高亮最后一次插入的内容
-```
-
