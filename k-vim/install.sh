@@ -110,7 +110,6 @@ echo "Install Done!"
 # ctags -R -f ~/.vim/tags/python.ctags /usr/lib/python3.5/
 # ctags -R -f ~/.vim/tags/python_thirdparty.ctags /usr/local/lib/python3.5
 # ctags -R -f ~/.vim/tags/opencv.ctags /usr/local/include/opencv2
-sudo pip install flake8
 sudo apt-get install libclang-3.8-dev
 sudo pip install jedi
 sudo apt-get install vim-gnome
