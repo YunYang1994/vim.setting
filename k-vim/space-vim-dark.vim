@@ -209,7 +209,7 @@ call s:hi('Tag'          , 161 , ''  , 'None' , 'None')
 call s:hi('Title'        , 176 , ''  , 'None' , 'None')
 call s:hi('StorageClass' , 178 , ''  , 'bold' , 'bold')
 
-call s:hi('Comment'   , 30 , ''    , 'None' , 'italic')
+call s:hi('Comment'   , 240 , ''    , 'None' , 'italic')
 call s:hi('Visual'    , '' , s:bg3 , 'None' , 'None')
 call s:hi('VisualNOS' , '' , s:bg3 , 'None' , 'None')
 
