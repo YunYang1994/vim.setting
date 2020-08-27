@@ -713,7 +713,7 @@ endfunc
 
 " add comment for shell,Makefile
 func SetComment_sh()
-	call setline(3, "#================================================================")
+	call setline(3, "# ================================================================")
 	call setline(4, "#   Copyright (C) ".strftime("%Y")." * Ltd. All rights reserved.")
 	call setline(5, "#   ")
 	call setline(6, "#   Editor      : VIM ")
@@ -722,7 +722,7 @@ func SetComment_sh()
 	call setline(9, "#   Created date: ".strftime("%F %T"))
 	call setline(10, "#   Description : ")
 	call setline(11, "#")
-	call setline(12, "#================================================================")
+	call setline(12, "# ================================================================")
 	call setline(13, "")
 	call setline(14, "")
 endfunc
