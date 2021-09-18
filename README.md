@@ -1,2 +1,2 @@
 # vimrc
-some IDE settings
+ZSH_THEME="half-life"
