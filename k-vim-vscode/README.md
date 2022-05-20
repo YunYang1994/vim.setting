@@ -211,7 +211,20 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
         "key": "ctrl+j",
         "command": "-editor.action.joinLines",
         "when": "editorTextFocus"
-    }
+    },
+    // shortcut: ctrl+j/k
+    // for quick open choose
+    // ctrl+j/k 选择quickopen文件列表
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
 ]
 ```
 
