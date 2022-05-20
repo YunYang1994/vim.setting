@@ -2,6 +2,14 @@
 
 vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/k-vim)! Happy Coding! 
 
+## 说明
+- 【Ctrl】+【` 】 ：打开默认终端，界面保留关闭前的状态；
+- 【Ctrl】+【←】：后退
+- 【Ctrl】+【→】：前进
+- 【Alt】+【←】：上一个编辑器
+- 【Alt】+【→】：下一个编辑器
+- 【Ctrl】+【w】：关闭编辑器
+- 【,】+【f】：按名称搜文件
 
 ## vscode settings.json
 
