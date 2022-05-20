@@ -7,90 +7,9 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
 
 ```javascript
 {
-    // date: 2022-03-17 20:43
+    "files.autoSave": "onFocusChange",
+    "workbench.colorTheme": "GitHub Dark",
 
-    // ## window
-    // 窗口放大0.5 (explorer font-size无法自定义, 太小了)
-    "window.zoomLevel": 0.5,
-
-    // ## Editor
-    "editor.fontSize": 14,
-    "editor.fontFamily": "‘Fira Code’,Menlo, Monaco, 'Courier New', monospace",
-    // 开启花括号颜色
-    "editor.bracketPairColorization.enabled": true,
-    // 禁止编辑区滚动到最后一行下面 prevent the editor from scrolling beyond the last line.
-    "editor.scrollBeyondLastLine": false,
-    // 查找框展示导致鼠标能往上滚动一行
-    "editor.find.addExtraSpaceOnTop": false,
-    // 显示 120 字符竖线 the 120 characters line
-    "editor.rulers": [120],
-    // 关闭小地图 disable the minimap
-    "editor.minimap.enabled": false,
-    // 设置注释的颜色 以及斜体展示 set comment italic
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                // comments color, like jetbrains
-                "scope": [
-                    "comment",
-                    "comment.line",
-                    "comment.block",
-                    "comment.block.documentation",
-                    "string.quoted.docstring.multi.python",
-                    "punctuation.definition.comment",
-                    "punctuation.definition.comment.begin.documentation",
-                    "punctuation.definition.comment.end.documentation",
-                ],
-                "settings": {
-                    "fontStyle": "italic",
-                    "foreground": "#808080",
-                }
-            },
-        ]
-    },
-    // 提示相关 suggestion
-    // "editor.suggestSelection": "recentlyUsedByPrefix",
-    "editor.suggestSelection": "first",
-    "editor.quickSuggestions": {
-      "other": true,
-      "comments": true,
-      "strings": true,
-    },
-    // "editor.acceptSuggestionOnEnter": "smart", // "on", "off", "smart"
-    // Enable parameter hints => 默认开启的, 觉得信息过多的话, 关闭
-    "editor.parameterHints.enabled": false,
-    "editor.inlineSuggest.enabled": true,
-
-
-    // ## workbench
-    "workbench.colorTheme": "Darcula",
-    "workbench.iconTheme": "vscode-great-icons",
-    // 编辑区域配色 color like jetbrains
-    "workbench.colorCustomizations": {
-        "editor.background": "#2b2b2b",
-        "editorGutter.background": "#313335",
-        "activityBar.background": "#4d5254",
-        "sideBarSectionHeader.background": "#4d5254",
-        "sideBar.background": "#3b3f41",
-        "statusBar.background": "#00605f",
-
-        "terminal.foreground": "#678046",
-        "terminal.ansiBrightBlue": "#2F7ECD",
-        "terminal.ansiBrightGreen": "#d37e02",
-        "terminal.background": "#242424",
-    },
-    // 高亮显示被修改的tab
-    "workbench.editor.highlightModifiedTabs": true,
-
-    // ## Terminal
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.scrollback": 20000,
-    // 终端选中即拷贝
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.external.osxExec": "iTerm.app",
-
-    // ## files
-    // 隐藏哪些文件
     "files.exclude": {
         ".idea": true,
         ".vscode": true,
@@ -100,28 +19,13 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
         "templates_module/": true,
         "**/.project": true,
         ".mypy_cache/": true,
-        //     "**/.classpath": true,
-        //     "**/.coverage": true,
-        //     "**/.factorypath": true,
-        //     "**/.settings": true,
     },
-    "files.autoSave": "onWindowChange",
-    "files.trimTrailingWhitespace": true,
-
-    // ## search
-    // 显示检索到的位置的行号
-    "search.showLineNumbers": true,
-    // 是否智能大小写
-    "search.smartCase": true,
-
     // ## Extension: vim
     "vim.leader": ",",
     "vim.incsearch": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "vim.highlightedyank.enable": true,
-    // "vim.textwidth": 120,
-    // "vim.visualstar": true,
 
     // - references: https://code.visualstudio.com/docs/getstarted/keybindings#_default-keybindings
     // shortcut: kj
@@ -172,16 +76,6 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
             "before": ["leader", "j", "d"],
             "after": ["g", "d"]
         },
-        // shortcut: leader-gi
-        // goToImplementation 跳转到实现处
-        {
-            "before": ["leader", "g", "i"],
-            "commands": [
-                {
-                    "command": "editor.action.goToImplementation",
-                }
-            ]
-        },
         // shortcut: leader-gh
         // show help-tip-def 展示提示
         {
@@ -193,12 +87,6 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
         {
             "before": ["leader", "h"],
             "after": ["g", "h"]
-        },
-        // shortcut: leader-d
-        // show dash 当前关键字查询dash
-        {
-            "before": ["leader", "d"],
-            "commands": ["extension.dash.specific"]
         },
         // shortcut: leader-cc
         // comment 注释
@@ -212,18 +100,6 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
             "before": ["leader", "c", "u"],
             "commands": ["editor.action.removeCommentLine"]
         },
-        // shortcut: leader-rn
-        // rename symbol 重命名
-        {
-            "before": ["leader", "r", "n"],
-            "commands": ["editor.action.rename"]
-        },
-        // shortcut: leader-space
-        // trailing space
-        {
-            "before": ["leader", "space"],
-            "commands": ["editor.action.trimTrailingWhitespace"]
-        },
         // shortcut: # and *
         // - switch # and *
         {
@@ -234,38 +110,6 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
             "before": ["#"],
             "after": ["*"]
         },
-        // shortcut: ;
-        // show the command palette 展示command palette
-        {
-            "before": [";"],
-            "commands": [
-                "workbench.action.showCommands",
-            ]
-        },
-        // shortcut: leader-p
-        // show the command palette 展示command palette
-        {
-            "before": ["leader", "p"],
-            "commands": [
-                "workbench.action.showCommands",
-            ]
-        },
-        // shortcut: leader-z
-        // trigger editor size 当前编辑区域宽度变大变小
-        {
-            "before": ["leader", "z"],
-            "commands": [
-                "workbench.action.toggleEditorWidths",
-            ]
-        },
-
-        // - leader-p to all opened editors
-        // {
-        //     "before": ["leader", "p"],
-        //     "commands": [
-        //         "workbench.action.openNextRecentlyUsedEditorInGroup"
-        //     ]
-        // },
 
         // shortcut: leader-f
         // go to file 跳转到文件
@@ -273,47 +117,6 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
             "before": ["leader", "f"],
             "commands": [
                 "workbench.action.quickOpen",
-            ]
-        },
-        // shortcut: @
-        // go to symbol 跳转到当前文件的symbol位置(变量/函数/类等特征位置), k-vim中 leader-fu
-        {
-            // "before": ["leader", "s"],
-            "before": ["@"],
-            "commands": [
-                "workbench.action.gotoSymbol",
-            ]
-        },
-        // shortcut: leader-s
-        // show problems 展示当前编辑文件的问题
-        {
-            "before": ["leader", "s"],
-            "commands": [
-                "workbench.actions.view.problems"
-            ]
-        },
-        // shortcut: leader-en
-        // Go to Next Error or Warning 下一个错误点
-        {
-            "before": ["leader", "e", "n"],
-            "commands": [
-                "editor.action.marker.nextInFiles"
-            ]
-        },
-        // shortcut: leader-ep
-        // Go to Previous Error or Warning 前一个错误点
-        {
-            "before": ["leader", "e", "p"],
-            "commands": [
-                "editor.action.marker.prevInFiles"
-            ]
-        },
-        // shortcut: leader-/
-        // turn-off highlight 关闭vim search高亮选中
-        {
-            "before":["leader", "/"],
-            "commands": [
-                ":nohl",
             ]
         },
     ],
@@ -334,7 +137,7 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
         // indent/outdent lines (repeatable) 左右移动代码块
         {
             "before": [
-                ">"
+                ">"             // shift + >
             ],
             "commands": [
                 "editor.action.indentLines"
@@ -342,138 +145,13 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
         },
         {
             "before": [
-                "<"
+                "<"            // shift + <
             ],
             "commands": [
                 "editor.action.outdentLines"
             ]
         },
     ],
-    // - auto switch input. detail https://github.com/VSCodeVim/Vim#input-method
-    "vim.autoSwitchInputMethod.enable": true,
-    "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
-    "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
-    "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
-    // - easymotion. detail https://github.com/VSCodeVim/Vim#vim-easymotion
-    "vim.easymotion": true,
-
-    // ## Extension: python
-    // "python.linting.flake8Enabled": true,
-    // "python.linting.pylintEnabled": false,
-    "python.linting.flake8Args": [
-        "--max-line-length=120",
-        "--max-complexity=12"
-    ],
-    "python.linting.mypyEnabled": true,
-    "python.formatting.provider": "black",
-
-
-    // ## Extension: go
-    // https://github.com/mvdan/gofumpt
-    "go.useLanguageServer": true,
-    "gopls": {
-        "ui.semanticTokens": true,
-        // https://github.com/golang/tools/blob/master/gopls/doc/settings.md#formatting
-        "formatting.gofumpt": true,
-        // TODO: how to change it for each project
-        "formatting.local": "iam",
-        // https://github.com/golang/tools/blob/master/gopls/doc/settings.md#importshortcut-enum
-        // import package don't show as link
-        "ui.navigation.importShortcut": "Definition",
-        // when mouse hover only show struct, without document
-        "ui.documentation.hoverKind": "NoDocumentation",
-        // add parameter placeholders when completing a function
-        "ui.completion.usePlaceholders": true,
-    },
-    "go.lintTool": "golangci-lint",
-    "go.lintFlags": [
-        "--fast"
-    ],
-    "go.testFlags": [
-        "-mod=vendor",
-        "-gcflags=all=-l",
-        "-covermode=count",
-        // "-coverprofile .coverage.cov",
-    ],
-    // https://dev.to/vuong/golang-in-vscode-show-code-coverage-of-after-saving-test-8g0
-    "go.coverageDecorator": {
-        "type": "gutter",
-        // "coveredHighlightColor": "rgba(64,128,128,0.5)",
-        // "uncoveredHighlightColor": "rgba(128,64,64,0.25)",
-        "coveredGutterStyle": "blockgreen",
-        "uncoveredGutterStyle": "blockred"
-    },
-    "go.coverOnSingleTest": true,
-    "go.toolsManagement.autoUpdate": true,
-    "[go]": {
-        // "editor.snippetSuggestions": "top",
-        // "editor.snippetSuggestions": "none",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-        }
-    },
-
-    // ## Extension: scrolloff
-    "scrolloff.scrolloff": 7,
-
-    // ## Extension: markdown
-    "markdown.preview.fontSize": 16,
-    "markdown-preview-github-styles.colorTheme": "light",
-
-    // ## Extension: errorLens
-    "errorLens.statusBarColorsEnabled": true,
-    "errorLens.margin": "6ch",
-    "errorLens.fontWeight": "100",
-    "errorLens.fontStyleItalic": true,
-    "errorLens.fontSize": "13",
-    "errorLens.followCursor": "closestProblem",
-    "errorLens.gutterIconsEnabled": true,
-    "errorLens.excludeBySource": [
-        "cSpell"
-    ],
-    // not show in real
-    "errorLens.onSave": true,
-
-    // ## Extension: todo-tree
-    "todo-tree.highlights.enabled": false,
-    // ## Extension: cSpell
-    "cSpell.ignoreRegExpList": [
-        "github.com.*"
-    ],
-    "cSpell.userWords": [
-        "funcs",
-        "healthz",
-        "Infof"
-    ],
-    // ## Extension: better-comments
-    // ignore multiline comments, while the license with * will render to green
-    "better-comments.multilineComments": false,
-    // add more keyword to highlight, like fixme/note
-    "better-comments.tags": [
-        {
-            "tag": "fixme",
-            "color": "#FF2D00",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-        {
-            "tag": "note",
-            "color": "#3498DB",
-            "strikethrough": false,
-            "underline": false,
-            "backgroundColor": "transparent",
-            "bold": false,
-            "italic": false
-        },
-    ],
-    // ## Extension: vsintellicode
-    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
-    // ## Extension: tabnine
-    "tabnine.experimentalAutoImports": true,
 }
 ```
 
