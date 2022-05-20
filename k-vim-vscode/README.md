@@ -159,240 +159,51 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
 
 ```javascript
 [
-    // ! double click can't select one world
-    // add vscode to popclip exclude apps if you installed one on your mac!
-
-    // shortcut: ctrl+j/k
-    // for choose suggestion
-    // ctrl+j/k 选择提示候选
     {
-        "key": "ctrl+j",
-        "command": "selectNextSuggestion",
-        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+        "key": "ctrl+right",
+        "command": "workbench.action.navigateForward"
     },
     {
-        "key": "ctrl+k",
-        "command": "selectPrevSuggestion",
-        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-    },
-    // shortcut: ctrl+j/k
-    // for quick open choose
-    // ctrl+j/k 选择quickopen文件列表
-    {
-        "key": "ctrl+j",
-        "command": "workbench.action.quickOpenSelectNext",
-        "when": "inQuickOpen"
+        "key": "alt+right",
+        "command": "-workbench.action.navigateForward"
     },
     {
-        "key": "ctrl+k",
-        "command": "workbench.action.quickOpenSelectPrevious",
-        "when": "inQuickOpen"
-    },
-    // shortcut: cmd+enter
-    // rename a file in explorer, same to mac finder
-    // 在explorer中重命名文件
-    {
-        "key": "cmd+enter",
-        "command": "renameFile",
-        "when": "explorerViewletVisible && filesExplorerFocus"
-    },
-    // shortcut disable: enter 重命名文件, 避免冲突
-    {
-        "key": "enter",
-        "command": "-renameFile",
-        "when": "explorerViewletVisible && filesExplorerFocus"
+        "key": "ctrl+left",
+        "command": "workbench.action.navigateBack"
     },
     {
-        "key": "enter",
-        "command": "list.select",
-        "when": "listFocus && !inputFocus"
-    },
-    // shortcut: ctrl+h/j/k/l
-    // ctrl+h/j/k/l to the between groups
-    // ctrl+h/j/k/l 在group之间移动
-    {
-        "key": "ctrl+h",
-        "command": "workbench.action.focusLeftGroup"
+        "key": "alt+left",
+        "command": "-workbench.action.navigateBack"
     },
     {
-        "key": "ctrl+l",
-        "command": "workbench.action.focusRightGroup"
+        "key": "ctrl+w",
+        "command": "workbench.action.closeActiveEditor"
     },
     {
-        "key": "ctrl+k",
-        "command": "workbench.action.focusAboveGroup",
-        "when": "!inQuickOpen && !suggestWidgetVisible"
+        "key": "ctrl+f4",
+        "command": "-workbench.action.closeActiveEditor"
     },
     {
-        "key": "ctrl+j",
-        "command": "workbench.action.focusBelowGroup",
-        "when": "!inQuickOpen && !suggestWidgetVisible"
-    },
-    // shortcut: cmd+h/l
-    // cmd+h/l to the next/previous eeditor tab
-    // cmd+h/l 切换前一个/后一个tab
-    {
-        "key": "cmd+h",
+        "key": "alt+left",
         "command": "workbench.action.previousEditor"
     },
     {
-        "key": "cmd+l",
+        "key": "ctrl+pageup",
+        "command": "-workbench.action.previousEditor"
+    },
+    {
+        "key": "alt+right",
         "command": "workbench.action.nextEditor"
     },
-    // shortcut: cmd+1
-    // trigger sidebar and activity bar visibility
-    // 展示/隐藏左侧 sidebar和activity bar
-    // NOTE: 本来应该是切换到第一个tab的; 注意需要安装multiCommand插件
     {
-        "key": "cmd+1",
-        "command": "extension.multiCommand.execute",
-        "args": {
-            "sequence": [
-                "workbench.action.toggleActivityBarVisibility",
-                "workbench.action.toggleSidebarVisibility",
-            ]
-        }
-        // "command": "workbench.action.openEditorAtIndex1",
-        // "command": "workbench.action.toggleSidebarVisibility",
-        // "command": "workbench.action.toggleActivityBarVisibility",
-    },
-    // shortcut: cmd+number (>=2)
-    // cmd+number to switch to tab N
-    // cmd+数字切换到第 N 个tab
-    {
-        "key": "cmd+2",
-        "command": "workbench.action.openEditorAtIndex2",
+        "key": "ctrl+pagedown",
+        "command": "-workbench.action.nextEditor"
     },
     {
-        "key": "cmd+3",
-        "command": "workbench.action.openEditorAtIndex3",
-    },
-    {
-        "key": "cmd+4",
-        "command": "workbench.action.openEditorAtIndex4",
-    },
-    {
-        "key": "cmd+5",
-        "command": "workbench.action.openEditorAtIndex5",
-    },
-    {
-        "key": "cmd+6",
-        "command": "workbench.action.openEditorAtIndex6",
-    },
-    {
-        "key": "cmd+7",
-        "command": "workbench.action.openEditorAtIndex7",
-    },
-    {
-        "key": "cmd+8",
-        "command": "workbench.action.openEditorAtIndex8",
-    },
-    {
-        "key": "cmd+9",
-        "command": "workbench.action.openEditorAtIndex9",
-    },
-    // shortcut: ctrl+1/2
-    // switch group between first and second
-    // 切换到第一个group或第二个group
-    {
-        "key": "ctrl+1",
-        "command": "workbench.action.focusFirstEditorGroup",
-    },
-    {
-        "key": "ctrl+2",
-        "command": "workbench.action.focusSecondEditorGroup",
-    },
-    // shortcut: cmd+j
-    // trigger the visibility of panel
-    // 展示/隐藏 panel
-
-    // shortcut: ctrl+`
-    // active between editor and terminal
-    // 在termianl和编辑框之间切换
-    {
-        "key": "ctrl+`",
-        "command": "workbench.action.focusActiveEditorGroup",
-        "when": "terminalFocus"
-    },
-    // shortcut: cmd+\
-    // move current tab into next group
-    // 将当前正在编辑的tab 竖直切分成group
-    {
-        "key": "cmd+\\",
-        "command": "-workbench.action.splitEditor"
-    },
-    {
-        "key": "cmd+\\",
-        "command": "workbench.action.moveEditorToNextGroup"
-    },
-
-    // shortcut: escape
-    // back to explorer when search done
-    // 全局搜索后, esc切换到explorer
-    // TODO: 如何focus在editor上面?
-    {
-        "key": "Escape",
-        "command": "workbench.view.explorer",
-        "when": "searchViewletVisible"
-    },
-    // shortcut: ctrl+w ctrl+hjkl
-    // ctrl+w ctrl+hjkl move group
-    // ctrl+w ctrl+hjkl 挪动group
-    {
-        "key": "ctrl+w shift+j",
-        "command": "workbench.action.moveActiveEditorGroupDown"
-    },
-    {
-        "key": "cmd+k down",
-        "command": "-workbench.action.moveActiveEditorGroupDown"
-    },
-    {
-        "key": "ctrl+w shift+h",
-        "command": "workbench.action.moveActiveEditorGroupLeft"
-    },
-    {
-        "key": "cmd+k left",
-        "command": "-workbench.action.moveActiveEditorGroupLeft"
-    },
-    {
-        "key": "ctrl+w shift+l",
-        "command": "workbench.action.moveActiveEditorGroupRight"
-    },
-    {
-        "key": "cmd+k right",
-        "command": "-workbench.action.moveActiveEditorGroupRight"
-    },
-    {
-        "key": "ctrl+w shift+k",
-        "command": "workbench.action.moveActiveEditorGroupUp"
-    },
-    {
-        "key": "cmd+k up",
-        "command": "-workbench.action.moveActiveEditorGroupUp"
-    },
-    // shortcut: cmd+r
-    // do replace
-    // 替换, same as intellij
-    {
-        "key": "cmd+r",
-        "command": "editor.action.startFindReplaceAction",
-        "when": "editorFocus || editorIsOpen"
-    },
-    {
-        "key": "alt+cmd+f",
-        "command": "-editor.action.startFindReplaceAction",
-        "when": "editorFocus || editorIsOpen"
-    },
-    // others
-    // shortcut disable: zoom
-    {
-        "key": "cmd+=",
-        "command": "-workbench.action.zoomIn"
-    },
-    {
-        "key": "cmd+-",
-        "command": "-workbench.action.zoomOut"
-    },
+        "key": "ctrl+j",
+        "command": "-editor.action.joinLines",
+        "when": "editorTextFocus"
+    }
 ]
 ```
 
