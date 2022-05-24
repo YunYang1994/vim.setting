@@ -7,7 +7,7 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
 - 【Ctrl】+【←】：上一个编辑器
 - 【Ctrl】+【→】：下一个编辑器
 - 【Ctrl】+【o】：跳转到上一个位置
-- 【Ctrl】+【→】：跳转到下一个位置
+- 【Ctrl】+【i】：跳转到下一个位置
 - 【Ctrl】+【w】：关闭编辑器
 - 【,】+【f】：按名称搜文件
 
