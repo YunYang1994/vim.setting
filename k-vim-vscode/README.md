@@ -4,10 +4,10 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
 
 ## 说明
 - 【Ctrl】+【` 】 ：打开默认终端，界面保留关闭前的状态；
-- 【Ctrl】+【←】：后退
-- 【Ctrl】+【→】：前进
-- 【Alt】+【←】：上一个编辑器
-- 【Alt】+【→】：下一个编辑器
+- 【Ctrl】+【←】：上一个编辑器
+- 【Ctrl】+【→】：下一个编辑器
+- 【Ctrl】+【o】：跳转到上一个位置
+- 【Ctrl】+【→】：跳转到下一个位置
 - 【Ctrl】+【w】：关闭编辑器
 - 【,】+【f】：按名称搜文件
 
@@ -16,6 +16,10 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
 ```javascript
 {
     "files.autoSave": "onFocusChange",
+    "remote.SSH.remotePlatform": {
+        "yangyun": "linux"
+    },
+    "workbench.iconTheme": "Monokai Classic Icons",
     "workbench.colorTheme": "GitHub Dark",
 
     "files.exclude": {
@@ -84,6 +88,28 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
             "before": ["leader", "j", "d"],
             "after": ["g", "d"]
         },
+
+        // {
+        //     "before": ["oem_7", "oem_7"],
+        //     // "after": ["<C-o>"],
+        //     "command": ["workbench.action.navigateBack"]
+        // },    
+
+        {
+            "before": ["L"],
+            "after": ["End"]
+        },
+
+        {
+            "before": ["H"],
+            "after": ["Home"]
+        },
+
+        {
+            "before": ["space"],
+            "after": ["/"]
+        },
+
         // shortcut: leader-gh
         // show help-tip-def 展示提示
         {
@@ -160,6 +186,13 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
             ]
         },
     ],
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "workbench.activityBar.visible": true,
+    // "window.zoomLevel": 0,
+    // "editor.fontSize": 17,
+    // "terminal.integrated.fontSize": 17,
 }
 ```
 
@@ -167,22 +200,6 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
 
 ```javascript
 [
-    {
-        "key": "ctrl+right",
-        "command": "workbench.action.navigateForward"
-    },
-    {
-        "key": "alt+right",
-        "command": "-workbench.action.navigateForward"
-    },
-    {
-        "key": "ctrl+left",
-        "command": "workbench.action.navigateBack"
-    },
-    {
-        "key": "alt+left",
-        "command": "-workbench.action.navigateBack"
-    },
     {
         "key": "ctrl+w",
         "command": "workbench.action.closeActiveEditor"
@@ -192,7 +209,7 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
         "command": "-workbench.action.closeActiveEditor"
     },
     {
-        "key": "alt+left",
+        "key": "ctrl+left",
         "command": "workbench.action.previousEditor"
     },
     {
@@ -200,7 +217,7 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
         "command": "-workbench.action.previousEditor"
     },
     {
-        "key": "alt+right",
+        "key": "ctrl+right",
         "command": "workbench.action.nextEditor"
     },
     {
@@ -224,6 +241,20 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
         "key": "ctrl+k",
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.files.action.focusFilesExplorer"
+    },
+    {
+        "key": "ctrl+k e",
+        "command": "-workbench.files.action.focusOpenEditorsView",
+        "when": "workbench.explorer.openEditorsView.active"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!terminalFocus"
     },
 ]
 ```
