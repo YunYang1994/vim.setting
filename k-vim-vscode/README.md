@@ -1,6 +1,20 @@
+
+
 # k-vim-vscode
 
 vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/k-vim)! Happy Coding! 
+
+## 插件
+- Output Colorizer
+- C/C++
+- GitHub Theme
+- CMake Tools
+- Cmake
+- Pylance
+- Python
+- Remote-SSH
+- Vim
+
 
 ## 说明
 - 【Ctrl】+【` 】 ：打开默认终端，界面保留关闭前的状态；
