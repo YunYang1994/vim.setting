@@ -6,10 +6,11 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
 
 ## 插件
 - Output Colorizer
-- C/C++
+- [C/C++ Runner](https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner)
+- [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
+- [C/C++ Extension Pack（C/C++, CMake Tools, Cmake, C/C++ Themes）](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
 - GitHub Theme
-- CMake Tools
-- Cmake
+- [Chinese (Simplified) (简体中文)](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans)
 - Pylance
 - Python
 - Remote-SSH
