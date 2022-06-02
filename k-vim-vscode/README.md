@@ -275,6 +275,11 @@ vscode settings with vim key-bindings just like [k-vim](https://github.com/YunYa
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!terminalFocus"
     },
+    {
+        "key": "ctrl+k ctrl+k",
+        "command": "-deleteAllRight",
+        "when": "editorTextFocus && !editorReadonly"
+    },
 ]
 ```
 
