@@ -15,6 +15,7 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
 - Python
 - Remote-SSH
 - Vim
+- [GDB Debug](https://marketplace.visualstudio.com/items?itemName=DamianKoper.gdb-debug)
 
 
 ## 说明
