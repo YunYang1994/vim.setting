@@ -201,7 +201,8 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
     "cmake.configureOnOpen": true,
     "vim.handleKeys": {
         "<C-f>": false,
-        "<C-d>": true,
+        "<C-d>": false,
+        "<C-k>": false,
     },
     // "window.zoomLevel": 0,
     // "editor.fontSize": 17,
