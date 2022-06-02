@@ -15,6 +15,7 @@ vscode settings with vim key-bindings just like [k-vim](https://github.com/YunYa
 - Python
 - Remote-SSH
 - Vim
+- [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
 - [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
 - [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 - [GDB Debug](https://marketplace.visualstudio.com/items?itemName=DamianKoper.gdb-debug)
