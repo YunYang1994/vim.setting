@@ -210,6 +210,11 @@ vscode settings with vim key-bindings just like [k-vim](https://github.com/YunYa
         "<C-d>": false,
         "<C-k>": false,
     },
+    "C_Cpp.errorSquiggles": "Disabled",
+    "cmake.configureArgs": [
+        "-Wno-dev",
+        "-Wno-deprecated"
+    ],
     // "window.zoomLevel": 0,
     // "editor.fontSize": 17,
     // "terminal.integrated.fontSize": 17,
