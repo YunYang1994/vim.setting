@@ -103,12 +103,6 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
             "after": ["g", "d"]
         },
 
-        // {
-        //     "before": ["oem_7", "oem_7"],
-        //     // "after": ["<C-o>"],
-        //     "command": ["workbench.action.navigateBack"]
-        // },    
-
         {
             "before": ["L"],
             "after": ["End"]
@@ -204,6 +198,11 @@ vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/
     "editor.renderWhitespace": "none",
     "editor.renderControlCharacters": false,
     "workbench.activityBar.visible": true,
+    "cmake.configureOnOpen": true,
+    "vim.handleKeys": {
+        "<C-f>": false,
+        "<C-d>": true,
+    },
     // "window.zoomLevel": 0,
     // "editor.fontSize": 17,
     // "terminal.integrated.fontSize": 17,
