@@ -2,7 +2,7 @@
 
 # k-vim-vscode
 
-vscode settings with vim key-bindings just like [k-vim](https://github.com/wklken/k-vim)! Happy Coding! 
+vscode settings with vim key-bindings just like [k-vim](https://github.com/YunYang1994/vim.setting/tree/master/k-vim)! Happy Coding! 
 
 ## 插件
 - [Output Colorizer](https://marketplace.visualstudio.com/items?itemName=IBM.output-colorizer)
