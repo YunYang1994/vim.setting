@@ -5,7 +5,7 @@
 vscode settings with vim key-bindings just like k-vim(https://github.com/wklken/k-vim)! Happy Coding! 
 
 ## 插件
-- Output Colorizer
+- [Output Colorizer](https://marketplace.visualstudio.com/items?itemName=IBM.output-colorizer)
 - [C/C++ Runner](https://marketplace.visualstudio.com/items?itemName=franneck94.c-cpp-runner)
 - [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
 - [C/C++ Extension Pack（C/C++, CMake Tools, Cmake, C/C++ Themes）](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
