@@ -199,6 +199,14 @@ vscode settings with vim key-bindings just like [k-vim](https://github.com/YunYa
                 "editor.action.outdentLines"
             ]
         },
+        {
+            "before": ["L"],
+            "after": ["End"]
+        },
+        {
+            "before": ["H"],
+            "after": ["Home"]
+        },
     ],
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "none",
