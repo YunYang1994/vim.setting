@@ -25,8 +25,7 @@ vscode settings with vim key-bindings just like [k-vim](https://github.com/YunYa
 - 【Ctrl】+【` 】 ：打开默认终端，界面保留关闭前的状态；
 - 【Ctrl】+【←】：上一个编辑器
 - 【Ctrl】+【→】：下一个编辑器
-- 【Ctrl】+【o】：跳转到上一个位置
-- 【Ctrl】+【i】：跳转到下一个位置
+- 【Ctrl】+【i】：跳转到上一个位置
 - 【Ctrl】+【w】：关闭编辑器
 - 【,】+【f】：按名称搜文件
 - 对于 markdown 文件，右键点击【MPE: 打开侧边预览】即可一边编辑一边预览
