@@ -161,24 +161,6 @@ if count(g:bundle_groups, 'tmux')
     Plug 'christoomey/vim-tmux-navigator'
 endif
 
-if count(g:bundle_groups, 'markdown')
-    Plug 'plasticboy/vim-markdown', {'for': 'md'}
-    " https://github.com/suan/vim-instant-markdown
-    " npm -g install instant-markdown-d
-    " Plug 'suan/vim-instant-markdown'
-    " let g:instant_markdown_slow = 1
-    " let g:instant_markdown_autostart = 0
-    " map <F12> :InstantMarkdownPreview<CR>
-endif
-
-if count(g:bundle_groups, 'golang')
-    " 1. vim a.go
-    " 2. :GoInstallBinaries
-    " vimgo  https://github.com/fatih/vim-go
-    Plug 'fatih/vim-go', {'for': 'go'}
-endif
-
-
 if count(g:bundle_groups, 'python')
     " for python.vim syntax highlight
     " pythonsyntax
@@ -187,265 +169,17 @@ if count(g:bundle_groups, 'python')
     Plug 'Glench/Vim-Jinja2-Syntax'
 endif
 
-if count(g:bundle_groups, 'php')
-    " piv
-    " shift-v可以查看函数手册 / leader-pd生成注释
-    Plug 'spf13/PIV'
+if count(g:bundle_groups, 'shell')
+    Plug 'Shougo/vimshell.vim'
 endif
-
-if count(g:bundle_groups, 'ruby')
-    Plug 'vim-ruby/vim-ruby'
-    Plug 'tpope/vim-rails'
-    " dir / dar
-    Plug 'nelstrom/vim-textobj-rubyblock'
-
-    " 有bug, 和当前有冲突, 尚未解决, 不要打开 => TODO: solve this problem
-    " Plug 'tpope/vim-endwise'
-endif
-
-if count(g:bundle_groups, 'javascript')
-    " javascript
-    " 注意: syntax这个插件要放前面
-    Plug 'othree/yajs.vim' | Plug 'pangloss/vim-javascript'
-    " Plug 'jelera/vim-javascript-syntax' | Plug 'pangloss/vim-javascript'
-
-    " TODO: jquery? for, remove or keep
-    Plug 'othree/javascript-libraries-syntax.vim'
-    let g:used_javascript_libs = 'jquery,underscore,backbone'
-
-    " for javascript 自动补全, 配合YCM, 需要安装全局环境的（非nvm中) node.js&npm
-    " 安装完成后还需要在 bundle/tern_for_vim 下执行 npm install 安装依赖 `cd ~/.vim/bundle/tern_for_vim && npm install`
-    " see https://github.com/marijnh/tern_for_vim
-    " Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-endif
-
-
-if count(g:bundle_groups, 'coffeescript')
-    Plug 'kchmck/vim-coffee-script'
-endif
-
-" if count(g:bundle_groups, 'shell')
-    " Plug 'Shougo/vimshell.vim'
-" endif
 
 if count(g:bundle_groups, 'json')
     " json
     Plug 'elzr/vim-json', {'for': 'json'}
 endif
 
-if count(g:bundle_groups, 'css')
-    " css
-    " not work in iterm2 which termianl selection is not xterm-256, and it slow
-    " Plug 'ap/vim-css-color'
-
-    " 这个有坑, see issue https://github.com/wklken/k-vim/issues/49
-    " Plug 'gorodinskiy/vim-coloresque'
-    " Plug 'lilydjwg/colorizer'
-endif
-
-if count(g:bundle_groups, 'less')
-    " ###### vim.less : less 自动更新##########
-    Plug 'groenewege/vim-less'
-    " autocmd BufWritePost *.less :!lessc % > %:p:r.css
-endif
-
-if count(g:bundle_groups, 'html')
-    " ###### emmet HTML complete #########
-    " Plug 'mattn/emmet-vim'
-endif
-
-" this is just for beta version
-if count(g:bundle_groups, 'beta')
-    " indent
-    Plug 'nathanaelkane/vim-indent-guides'
-    " <leader>ig to trigger
-    let g:indent_guides_start_level = 2
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_auto_colors = 1
-    " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-    " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
-
-    " Plug 'robbles/logstash.vim'
-    " Plug 'ryanoasis/vim-devicons'
-    " Plug 'ekalinin/dockerfile.vim'
-
-    " Plug 'ConradIrwin/vim-bracketed-paste'
-    " Plug 'roxma/vim-paste-easy'
-
-
-endif
-
-
 " Add plugins to &runtimepath
 call plug#end()
-
-
-" ################### 基础 ######################
-
-" syntastic {{{
-if has_key(g:plugs, 'syntastic')
-    " dependence
-    " 1. shellcheck `brew install shellcheck` https://github.com/koalaman/shellcheck
-
-    let g:syntastic_error_symbol='>>'
-    let g:syntastic_warning_symbol='>'
-    let g:syntastic_check_on_open=1
-    let g:syntastic_check_on_wq=0
-    let g:syntastic_enable_highlighting=1
-
-    " checkers
-    " python
-    " pip install flake8
-    let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
-    let g:syntastic_python_flake8_args='--ignore=E501,E225,E124,E712,E116,E131'
-
-    " javascript
-    " let g:syntastic_javascript_checkers = ['jsl', 'jshint']
-    " let g:syntastic_html_checkers=['tidy', 'jshint']
-    " npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard
-    " npm install -g eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint
-    let g:syntastic_javascript_checkers = ['eslint']
-
-    " to see error location list
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_enable_signs = 1
-    let g:syntastic_auto_loc_list = 0
-    let g:syntastic_auto_jump = 0
-    let g:syntastic_loc_list_height = 5
-    
-    "支持 c++11的语法检查
-    let g:syntastic_cpp_compiler = 'clang++'
-    let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-
-    function! ToggleErrors()
-        let old_last_winnr = winnr('$')
-        lclose
-        if old_last_winnr == winnr('$')
-            " Nothing was closed, open syntastic_error location panel
-            Errors
-        endif
-    endfunction
-    nnoremap <Leader>s :call ToggleErrors()<cr>
-
-    " ,en ,ep to jump between errors
-    function! <SID>LocationPrevious()
-    try
-        lprev
-    catch /^Vim\%((\a\+)\)\=:E553/
-        llast
-    endtry
-    endfunction
-
-    function! <SID>LocationNext()
-    try
-        lnext
-    catch /^Vim\%((\a\+)\)\=:E553/
-        lfirst
-    endtry
-    endfunction
-
-    nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPrevious()'<CR>
-    nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
-    nmap <silent> <Leader>ep    <Plug>LocationPrevious
-    nmap <silent> <Leader>en    <Plug>LocationNext
-
-    " 修改高亮的背景色, 适应主题
-    highlight SyntasticErrorSign guifg=white guibg=black
-
-    " 禁止插件检查java
-    " thanks to @marsqing, see https://github.com/wklken/k-vim/issues/164
-    let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['java'] }
-
-    " 关闭syntastic语法检查, 鼠标复制代码时用到, 防止把错误标志给复制了
-    nnoremap <silent> <Leader>ec :SyntasticToggleMode<CR>
-endif
-" }}}
-
-
-" ale {{{
-if has_key(g:plugs, 'ale')
-    " pip install flake8
-    " npm install -g eslint eslint-plugin-standard eslint-plugin-promise eslint-config-standard
-    " npm install -g eslint-plugin-import eslint-plugin-node eslint-plugin-html babel-eslint
-    let g:ale_linters = {
-    \   'python': ['pyflakes'],
-    \   'javascript': ['eslint'],
-    \}
-
-    " E501 -> 120 chars
-    let g:ale_python_flake8_args="--ignore=E114,E116,E131 --max-line-length=120"
-    " --ignore=E225,E124,E712,E116
-
-    let g:ale_sign_error = '>>'
-    let g:ale_sign_warning = '>'
-
-    let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-    let g:ale_echo_msg_error_str = 'E'
-    let g:ale_echo_msg_warning_str = 'W'
-    let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-    nmap <silent> <Leader>ep <Plug>(ale_previous_wrap)
-    nmap <silent> <Leader>en <Plug>(ale_next_wrap)
-
-    nnoremap <silent> <Leader>ec :ALEToggle<CR>
-
-    " troggle quickfix list
-    function! ToggleErrors()
-        let old_last_winnr = winnr('$')
-        lclose
-        if old_last_winnr == winnr('$')
-            " Nothing was closed, open syntastic_error location panel
-            lopen
-        endif
-    endfunction
-    nnoremap <Leader>s :call ToggleErrors()<cr>
-
-    let g:ale_set_highlights = 1
-    highlight clear ALEErrorSign
-    highlight clear ALEWarningSign
-endif
-
-" }}}
-
-" ################### 自动补全 ###################
-
-" delimitMate {{{
-    " for python docstring ",优化输入
-    au FileType python let b:delimitMate_nesting_quotes = ['"']
-    au FileType php let delimitMate_matchpairs = "(:),[:],{:}"
-    " 关闭某些类型文件的自动补全
-    "au FileType mail let b:delimitMate_autoclose = 0
-" }}}
-
-
-" closetag {{{
-    let g:closetag_html_style=1
-" }}}
-
-" ################### 快速编码 ###################
-
-" nerdcommenter {{{
-    let g:NERDSpaceDelims=1
-    let g:NERDAltDelims_python = 1
-" }}}
-
-
-" trailingwhitespace {{{
-    map <leader><space> :FixWhitespace<cr>
-" }}}
-
-" easyalign {{{
-    vmap <Leader>a <Plug>(EasyAlign)
-    nmap <Leader>a <Plug>(EasyAlign)
-    if !exists('g:easy_align_delimiters')
-    let g:easy_align_delimiters = {}
-    endif
-    let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
-    " Default:
-    " If a delimiter is in a highlight group whose name matches any of the followings, it will be ignored.
-    let g:easy_align_ignore_groups = ['Comment', 'String']
-" }}}
-
 " ################### 快速移动 ###################
 
 " easymotion {{{
@@ -601,8 +335,6 @@ endif
     " let g:airline#extensions#tabline#enabled = 1
 " }}}
 
-
-
 " rainbow_parentheses {{{
     " 不加入这行, 防止黑色括号出现, 很难识别
     " \ ['black',       'SeaGreen3'],
@@ -686,38 +418,6 @@ endif
             \ 'F:singleton methods'
         \ ]
     \ }
-
-    " go语言的tagbar配置
-    " 1. install gotags 'go get -u github.com/jstemmer/gotags'
-    " 2. make sure `gotags` in you shell PATH, you can call check it with `which gotags`
-    " for gotags. work with tagbar
-    let g:tagbar_type_go = {
-        \ 'ctagstype' : 'go',
-        \ 'kinds'     : [
-            \ 'p:package',
-            \ 'i:imports:1',
-            \ 'c:constants',
-            \ 'v:variables',
-            \ 't:types',
-            \ 'n:interfaces',
-            \ 'w:fields',
-            \ 'e:embedded',
-            \ 'm:methods',
-            \ 'r:constructor',
-            \ 'f:functions'
-        \ ],
-        \ 'sro' : '.',
-        \ 'kind2scope' : {
-            \ 't' : 'ctype',
-            \ 'n' : 'ntype'
-        \ },
-        \ 'scope2kind' : {
-            \ 'ctype' : 't',
-            \ 'ntype' : 'n'
-        \ },
-        \ 'ctagsbin'  : 'gotags',
-        \ 'ctagsargs' : '-sort -silent'
-    \ }
 " }}}
 
 
@@ -744,77 +444,11 @@ endif
     let g:DisableAutoPHPFolding = 1
 " }}}
 
-
-" vimgo {{{
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_structs = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_build_constraints = 1
-
-    let g:go_fmt_fail_silently = 1
-    " format with goimports instead of gofmt
-    let g:go_fmt_command = "goimports"
-    let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-    let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'java'] }
-" }}}
-
 " markdown {{{
     let g:vim_markdown_folding_disabled=1
-" }}}
-
-
-" javascript {{{
-    " pangloss/vim-javascript
-    let g:html_indent_inctags = "html,body,head,tbody"
-    let g:html_indent_script1 = "inc"
-    let g:html_indent_style1 = "inc"
 " }}}
 
 " json {{{
     let g:vim_json_syntax_conceal = 0
 " }}}
 
-" css {{{
-" }}}
-
-
-" ####### temp #######
-
-" beta {{{
-    " pip install yapf
-    " python code format
-    " format all file
-    autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
-    " format select block
-    autocmd FileType python vnoremap <leader>y :!yapf<Cr>
-
-    " Plug 'posva/vim-vue'
-
-    " Plug 'millermedeiros/vim-esformatter'
-    " will run esformatter after pressing <leader> followed by the 'e' and 's'
-    " keys
-    " nnoremap <silent> <leader>es :Esformatter<CR>
-    " vnoremap <silent> <leader>es :EsformatterVisual<CR>
-
-" }}}
-
-
-" CompleteParameter{{{
-    inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-    smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-    imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-    smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-    imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-    nmap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-    imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-    smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-    nmap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-    imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-    smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-    let g:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`', '(':')'}
-    let g:AutoPairsMapBS = 0 
-    inoremap <buffer><silent> ) <C-R>=AutoPairsInsert(')')<CR>
-    let g:complete_parameter_py_keep_value = 1
-" }}}
-"------------------------------------------- end of configs --------------------------------------------
